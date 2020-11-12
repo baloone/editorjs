@@ -1,0 +1,52 @@
+.editor {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background-color: lightgray;
+}
+.editor > pre {
+    overflow: hidden;
+}
+.editor > pre, .editor > textarea {
+    position: absolute;
+    font-family: monospace;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    padding: 0; margin: 0;
+    border: none;
+}
+.editor > textarea {
+    color: transparent;
+    resize: none;
+    background: transparent;
+}
+#caretpre {
+    color: transparent;
+}
+.caret {
+    display: inline-block;
+    position: relative;
+    width: 0;
+    height: 1em;
+    animation: 1s caretanim;
+    animation-iteration-count: infinite;
+}
+.focused .caret::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: black;
+}
+
+textarea::selection {
+    background-color: rgba(0, 255, 255, 0.315);
+}
+
+@keyframes caretanim {
+    0% { opacity: 1; }
+    45%   { opacity: 1; }
+    50%   { opacity: 0; }
+    95% { opacity: 0; }
+    100% { opacity: 1; }
+}
