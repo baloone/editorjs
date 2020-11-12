@@ -1,15 +1,32 @@
-.editor {
-    position: relative;
+.editor-container {
+    font-family: monospace;
     width: 400px;
     height: 300px;
+    overflow: auto;
+}
+.editor-inner-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: min-content;
+}
+.lines {
+    min-width: 2em;
+    overflow: hidden;
+    padding-right: 1em;  
+    direction: rtl;  
+}
+.editor {
+    position: relative;
     background-color: lightgray;
+    width: 100%;
 }
 .editor > pre {
     overflow: hidden;
 }
+
 .editor > pre, .editor > textarea {
     position: absolute;
-    font-family: monospace;
     top: 0; left: 0; right: 0; bottom: 0;
     width: 100%; height: 100%;
     padding: 0; margin: 0;
