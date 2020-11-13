@@ -15,7 +15,15 @@ const highligh = function(timeout) {
     }
 }(300);
 
-const oninput = function(e) {
+const oninput = function(e={isTrusted:true}) {
+    if (!e.isTrusted) {
+        if (e.inputType === "insertText") {
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            textarea.value = textarea.value.slice(0, start) + e.data + textarea.value.slice(end);
+            textarea.selectionStart = textarea.selectionEnd = textarea.selectionDirection === "forward" ? start + e.data.length : start;
+        }
+    }
     pre.innerText = textarea.value;
     highligh();
 };
@@ -46,6 +54,15 @@ textarea.addEventListener('input', oninput);
 textarea.addEventListener('input', updatecaret);
 textarea.addEventListener('click', updatecaret);
 textarea.addEventListener('keydown', updatecaret);
+textarea.addEventListener('keydown', e => {
+    if(e.key === "Tab") {
+        e.preventDefault()
+        textarea.dispatchEvent(new InputEvent('input', {
+            inputType: "insertText",
+            data: "    ",
+        }));
+    };
+});
 textarea.addEventListener('keyup', updatecaret);
 editorDiv.addEventListener('click', e => {
     editorDiv.classList.add("focused");
