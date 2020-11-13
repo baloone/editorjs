@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/atom-one-light.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
 </head>
+
 <body>
-    <div class="editor-container">
-        <div class="editor-inner-container">
-            <div class="lines"></div>
-            <div class="editor">
-                <pre id="caretpre"><span class="caret"></span></pre>
-                <pre id="pre"></pre>
-                <textarea id="textarea"></textarea>
+    <div class="editor-container" style="
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    margin: auto;
+    width: 40vw;
+    height: 40vh;
+    ">
+        <div class="editor-middle-container">
+            <div class="editor-inner-container">
+                <div class="lines"></div>
+                <div class="editor">
+                    <pre id="caretpre"><span class="caret"></span></pre>
+                    <pre id="pre"></pre>
+                    <textarea id="textarea" spellcheck="false">
+def f():
+    pass
+</textarea>
+                </div>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
